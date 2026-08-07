@@ -1,0 +1,11 @@
+employee_id,name,department,age,salary,experience_years,city
+1001,Alice,Engineering,28,72000,4,Bengaluru
+1002,Bob,HR,35,58000,8,Chennai
+1003,Charlie,Finance,41,91000,14,Mumbai
+1004,Diana,Engineering,30,76000,6,Hyderabad
+1005,Ethan,Sales,27,52000,3,Pune
+1006,Fiona,Marketing,33,65000,7,Delhi
+1007,George,Engineering,38,98000,12,Bengaluru
+1008,Hannah,Finance,29,69000,5,Kolkata
+1009,Ian,Sales,31,61000,6,Chennai
+1010,Julia,HR,45,83000,18,Mumbai
