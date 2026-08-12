@@ -1,6 +1,7 @@
 from pathlib import Path
 from fastapi import UploadFile
 from app.core.config import settings
+from app.engines.dataset.dataset_engine import DatasetEngine
 
 class UploadService:
 
@@ -11,10 +12,12 @@ class UploadService:
         ".xlsx"
     }
 
+    dataset_engine = DatasetEngine()
+
     def save_file(self, file: UploadFile):
         self.UPLOAD_DIRECTORY.mkdir(
-            parents=True,
-            exist_ok=True
+            parents=True, # "If any middle folders are missing, build them!"
+            exist_ok=True # "If the folder is already there, don't panic, just skip it!"
         )
         
         extension = Path(file.filename).suffix.lower()
@@ -30,7 +33,10 @@ class UploadService:
 
             buffer.write(file.file.read())
 
+        metadata = self.dataset_engine.get_dataset_metadata(destination)
+
         return {
             "filename": file.filename,
-            "location": str(destination)
+            "location": str(destination),
+            "metadata": metadata
         }
